@@ -61,15 +61,15 @@
                     <td class="text-center" > {{ $post->user->first_namee . ' ' . $post->user->last_namee }}</td>
                     <td class="text-center" > {{ $post->category->cat_name }}</td>
    
-                    <td class="text-center" > <a href=" {{ route('dashboard.post.edit', $post->id) }} " class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> @lang('site.edit')</a> </td>
+                    <td class="text-center" > <a href=" {{ route('dashboard.post.edit', $post) }} " class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> @lang('site.edit')</a> </td>
                     <td class="text-center">
-                      <form action="{{ route('dashboard.post.destroy', $post->id) }}" method="post" >
+                      <form action="{{ route('dashboard.post.destroy', $post) }}" method="post" >
                         {{ csrf_field() }} 
                         {{ method_field('delete') }}
                          <button type="submit" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> @lang('site.delete')</button> 
                         </form>
                       </td>
-                    <td class="text-center" > <a href=" {{ route('dashboard.post.show', $post->id) }} " class="btn btn-sm btn-default"> <i class="fa fa-eye"></i> @lang('site.post_view')</a></td>
+                    <td class="text-center" > <a href=" {{ route('dashboard.post.show', $post) }} " class="btn btn-sm btn-default"> <i class="fa fa-eye"></i> @lang('site.post_view')</a></td>
                   </tr>
                 @endforeach
                 

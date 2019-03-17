@@ -23,7 +23,7 @@
   @include('partials.errors')
     </div>
     <div class="box-body">
-      <form action="{{ route('dashboard.post.update', $post->id) }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('dashboard.post.update', $post) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')

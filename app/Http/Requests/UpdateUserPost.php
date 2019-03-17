@@ -24,7 +24,7 @@ class UpdateUserPost extends FormRequest
     public function rules()
     {
         return [
-            'title'             =>       'required',
+            'title'             =>       'required:unique:posts',
             'post_body'         =>       'required',
             'featured'          =>       'sometimes|nullable|image',
             'other_images.*'    =>       'sometimes|nullable|image|min:1|max:3000',
@@ -37,6 +37,7 @@ class UpdateUserPost extends FormRequest
     {
         return [
             'title.required'                =>       'Title is Required',
+            'title.unique'                  =>       'This Title has Selected before',
             'post_body.required'            =>       'Body is Required',
             'category_id.required'          =>       'Category is Required',
             'category_id.numeric'           =>       'Category Must has a Numeric Value',

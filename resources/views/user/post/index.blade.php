@@ -37,7 +37,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -62,7 +62,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -87,7 +87,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -119,7 +119,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="{{ route('user.profile', $post->user_id) }}" class="post-author">{{ $post->user->first_namee . ' ' . $post->user->last_namee}}</a> on <a href="#" class="post-date">{{ date('M, d, Y', strtotime($post->created_at)) . ' at ' . date('H:i', strtotime($post->created_at)) }}</a></p>
+                            <p><a href="{{ route('user.profile', $post->user_id) }}" class="post-author">{{ $post->user->first_namee . ' ' . $post->user->last_namee}}</a> on <a href="#" class="post-date">{{ date('M, d, Y', strtotime($post->created_at)) . ' at ' . date('H:i', strtotime($post->created_at)) }}</a><strong class="pull-right">Views: {{ $viewers_count }} </strong></p>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">

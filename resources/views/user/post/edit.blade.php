@@ -37,7 +37,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -62,7 +62,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -87,7 +87,7 @@
                                         </div>
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="{{ route('post.show', $recent->id) }}" class="headline">
+                                            <a href="{{ route('post.show', $recent) }}" class="headline">
                                                 <h5 class="mb-0">{{ ucwords($recent->title) }}</h5>
                                             </a>
                                             <p>{{ $recent->summary }}</p>
@@ -117,7 +117,7 @@
                 <!-- ============= Post Content Area ============= -->
                 <div class="col-12 col-md-8 col-lg-8">
                     <div class="single-blog-content mb-100">
-      <form action="{{ route('dashboard.post.update', $post->id) }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('dashboard.post.update', $post) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')

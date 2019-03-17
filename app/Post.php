@@ -19,6 +19,11 @@ class Post extends Model
         'user_id'
          /** 'approve' */
     ];
+    public function getRouteKeyName()
+    {
+     return 'slug';   
+    }
+    
     protected $appends = ['main_image', 'other_images_show'];
 
     public function getMainImageAttribute()

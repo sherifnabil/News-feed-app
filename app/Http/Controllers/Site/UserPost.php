@@ -48,21 +48,21 @@ class UserPost extends Controller
     
     public function show(Post $post)
     {
-        // if (!auth()->guard('admin') ) {
+        if (!auth()->guard('admin') ) {
         //     // foreach ($post->viewed_by as $user) {
         //         // if (!$user->id == auth()->id()) {
                     
-        //     $post->viewed_by()->attach(auth()->id());
+            $post->viewed_by()->attach(auth()->id());
         //         // }
         //     // }
-        // }
-        $viewers_count = $post-> viewed_by()->orderBy('user_id', 'desc')->get();
+        }
+        $viewers_count = $post->viewed_by()->count();
             // dd($viewers_count);
-            foreach ($viewers_count as $value) {
-                return $value;
-            }
+            // foreach ($viewers_count as $value) {
+            //     return $value;
+            // }
         $recent_posts = Post::latest()->take(6)->get();
-        return view('user.post.index', compact('post', 'recent_posts'));
+        return view('user.post.index', compact('post', 'recent_posts', 'viewers_count'));
     }
 
    

@@ -43,7 +43,8 @@ class PostController extends Controller
         $data[ 'slug']          = str_slug($request->title);
         $data['featured']       =  $request->hasFile('featured') ? featured($request->featured) : '';
         $data['other_images']   = $request->hasFile('other_images') ? other_images($request->other_images) : '';
-        $post = Post::create($data);
+        $post                   = Post::create($data);
+
         $post->tags()->attach($request->tag_id);
         session('success', __( 'site.created_successfully'));
         return redirect(route('dashboard.post.index'));
@@ -59,11 +60,11 @@ class PostController extends Controller
         // foreach ( $post->viewed_by as $viewer) {
         //     return dd($viewer);
         // }
-        
         // in_array('')
-
         // $recent_posts = Post::latest()->take(6)->get();
-        return view('user.post.index', compact('post', 'recent_posts'));
+        $viewers_count = $post->viewed_by()->count();
+        $recent_posts  = Post::latest()->take(6)->get();
+        return view('user.post.index', compact('post', 'recent_posts', 'viewers_count'));
     }
 
     

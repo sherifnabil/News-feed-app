@@ -24,7 +24,7 @@ class StoreUserPost extends FormRequest
     public function rules()
     {
         return [
-            'title'             =>       'required',
+            'title'             =>       'required:unique:posts',
             'post_body'         =>       'required',
             'featured'          =>       'required|image',
             'other_images.*'    =>       'required|image|min:1|max:3500',
@@ -37,6 +37,7 @@ class StoreUserPost extends FormRequest
     {
         return [
             'title.required'                =>       'The Title is Required',
+            'title.unique'                  =>       'This Title has Selected before',
             'post_body.required'            =>       'The Post Body is Required',
             'featured.required'             =>       'The Main Image is Required',
             'featured.image'                =>       'The Main Image Must be an Image',
