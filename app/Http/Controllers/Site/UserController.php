@@ -132,7 +132,7 @@ class UserController extends Controller
         if(file_exists($user->featured)):
             unlink($user->featured);
         endif;
-        $user->history()->forceDelete();
+        $user->forceDelete();
         session()->flash('success', __('site.deleted_successfully'));
         return redirect(route('dashboard.user.index'));
 

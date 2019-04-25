@@ -29,7 +29,7 @@
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="{{ route('post.show', $post->id) }}" class="headline">
+                                                <a href="{{ route('post.show', $post) }}" class="headline">
                                                     <h5>{{ $post->title }}</h5>
                                                 </a>
                                                 <p>{{ $post->summary }}...</p>

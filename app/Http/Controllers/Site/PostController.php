@@ -107,7 +107,9 @@ class PostController extends Controller
     }
     public function restore($id)
     {
-        Post::onlyTrashed()->where('id', $id)->restore();
+        // dd($post);
+        $p = Post::withTrashed()->where('id', $id)->first();
+        $p->restore();
         session()->flash('success', __('site.restored_successfully'));
 
         return redirect(route('dashboard.post.index'));
@@ -116,15 +118,19 @@ class PostController extends Controller
     public function forcedelete($id)
     {
         $post = Post::onlyTrashed()->where('id', $id)->first();
-        if(file_exists($post->featured)):
-             unlink($post->featured);
+        if(file_exists($post['featured'])):
+             unlink($post['featured']);
         endif;
-        foreach ($post->other_images_show as $img) {
-            if(file_exists( $img)):
-                 unlink($img);
-        endif;
+        if ($post['other_images_show']) {
+            foreach ($post['other_images_show'] as $img) {
+                if(file_exists( $img)):
+                    unlink($img);
+                endif;
+            }
         }
-        $post->forceDelete();
+        if($post){
+            $post->forceDelete();
+        }
         session()->flash('success', __('site.deleted_successfully'));
         return redirect(route('dashboard.post.index'));
     }

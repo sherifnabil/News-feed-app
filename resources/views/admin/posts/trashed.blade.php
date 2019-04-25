@@ -49,7 +49,7 @@
                     <td class="text-center" > {{ $post->user->first_namee . ' ' . $post->user->last_namee }}</td>
                     <td class="text-center" > {{ $post->category->cat_name }}</td>
    
-                    <td class="text-center" > <a href="{{ route('dashboard.post.restore', $post) }}" class="btn btn-sm btn-success"> <i class="fa fa-edit"></i> @lang('site.restore')</a> </td>
+                    <td class="text-center" > <a href="{{ route('dashboard.post.restore', $post->id) }}" class="btn btn-sm btn-success"> <i class="fa fa-edit"></i> @lang('site.restore')</a> </td>
 
                     <td class="text-center"> <a href="{{ route('dashboard.post.forcedelete', $post) }}" class="btn btn-sm btn-danger"> <i   class="fa fa-trash"></i> @lang('site.force')</a>  
                     </td>

@@ -60,8 +60,8 @@
                     <td class="text-center" > {{ $post->user->first_namee . ' ' . $post->user->last_namee }}</td>
                     <td class="text-center" > {{ $post->category->cat_name }}</td>
    
-                    <td class="text-center" > <a href=" {{ route('dashboard.post.activate', $post) }} " class="btn btn-sm btn-success"> <i class="fa fa-edit"></i> @lang('site.activate')</a> </td>
-                    <td class="text-center" > <a href=" {{ route('dashboard.post.refuse', $post) }} " class="btn btn-sm btn-danger"> <i class="fa fa-edit"></i> @lang('site.refuse')</a> </td>
+                    <td class="text-center" > <a href=" {{ route('dashboard.post.activate', $post->id) }} " class="btn btn-sm btn-success"> <i class="fa fa-edit"></i> @lang('site.activate')</a> </td>
+                    <td class="text-center" > <a href=" {{ route('dashboard.post.refuse', $post->id) }}" class="btn btn-sm btn-danger"> <i class="fa fa-edit"></i> @lang('site.refuse')</a> </td>
                     
                     <td class="text-center" > <a href=" {{ route('dashboard.post.show', $post) }} " class="btn btn-sm btn-default"> <i class="fa fa-eye"></i> @lang('site.post_view')</a></td>
                   </tr>
